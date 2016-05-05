@@ -12,7 +12,7 @@ See a [Demo] (http://bastiantowers.github.io/online-editor/).
 What you need to run or use it?
 This component needs [HTML2Canvas] (https://github.com/niklasvh/html2canvas) to work properly and export what you see into a downloadable image.
 
-It is included in this repository, but all the credits of the image conversion goes to niklasvh.
+It is included in the package.json of this repository, but all the credits of the image conversion goes to [niklasvh] (https://github.com/niklasvh) and collaborators.
 
 ### How to use the component
 
