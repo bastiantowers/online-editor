@@ -4,7 +4,36 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
-    gnf = require('gulp-npm-files');
+    gnf = require('gulp-npm-files'),
+    src = {
+        build: {
+            root: './src/',
+            styles: './src/css/',
+            scripts: './src/scripts/',
+            images: './src/images/',
+            fonts: './src/fonts/'
+        },
+        dist: {
+            root: './dist/',
+            styles: './dist/css/',
+            scripts: './dist/scripts/',
+            images: './dist/images/',
+            fonts: './dist/fonts/',
+            manifest: './dist/'
+        },
+        images: [
+            './src/images/**/*.{png,jpg,ico,svg,gif}'
+        ],
+        fonts: [
+            './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'
+        ]
+    },
+    bundles = {
+        js: require('./src/bundles/js-bundles')()
+    },
+    component = {
+        name : 'component.js'
+    };
 
 gulp.task('styles', function() {
     return gulp.src('src/styles/**/*.scss')
@@ -51,14 +80,17 @@ gulp.task('styles-min', ['styles'], function() {
 });
 
 gulp.task('js', function() {
-    return gulp.src('src/scripts/**/*.js')
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.concat('component.js'))
-        .pipe($.size({
-            title: 'scripts'
-        }))
-        .pipe(gulp.dest('dist'));
+
+    Object.keys(bundles.js).forEach(function(bundle) {
+        return gulp.src(bundles.js[bundle])
+            .pipe($.jshint())
+            .pipe($.jshint.reporter('jshint-stylish'))
+            .pipe($.concat(component.name))
+            .pipe($.size({
+                title: 'scripts'
+            }))
+            .pipe(gulp.dest('dist'));
+    });
 });
 
 gulp.task('js-min', ['js'], function() {
@@ -112,14 +144,13 @@ gulp.task('serve', ['default'], function() {
 
     gulp.watch([
         '*.html',
-        'dist/**/*'
+        'src/**/*'
     ]).on('change', reload);
 
     gulp.start('watch');
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('copyNpmDependenciesOnly');
     gulp.start(['styles', 'js', 'images']);
 });
 
