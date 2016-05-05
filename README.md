@@ -28,18 +28,18 @@ You can run `gulp serve` to start a server at localhost:9000. It also watch for 
 
 In the HTML you want to edit, you have to load the library.
 For example:
-´´´bash
+```bash
 <script src="dist/onlineEditor.js"></script>
-´´´
+```
 
 Then you can instantiate and init the component with the ´init´ method.
 For example:
-´´´bash
+```bash
 <script type="text/javascript">
     var myOnlineEditor = new onlineEditor();
     myOnlineEditor.init();
 </script>
-´´´
+```
 
 ## Contributors
 
