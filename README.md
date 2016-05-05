@@ -26,6 +26,21 @@ Run `gulp serve` to see it in action and test that everything is in right place.
 
 You can run `gulp serve` to start a server at localhost:9000. It also watch for changes and reloads the browsers automatically.
 
+In the HTML you want to edit, you have to load the library.
+For example:
+´´´bash
+<script src="dist/onlineEditor.js"></script>
+´´´
+
+Then you can instantiate and init the component with the ´init´ method.
+For example:
+´´´bash
+<script type="text/javascript">
+    var myOnlineEditor = new onlineEditor();
+    myOnlineEditor.init();
+</script>
+´´´
+
 ## Contributors
 
 If you have any doubt about this project, here is a list of people who are or

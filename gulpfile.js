@@ -32,7 +32,7 @@ var gulp = require('gulp'),
         js: require('./src/bundles/js-bundles')()
     },
     component = {
-        name : 'component.js'
+        name : 'onlineEditor.js'
     };
 
 gulp.task('styles', function() {
