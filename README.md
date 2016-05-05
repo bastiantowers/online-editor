@@ -18,13 +18,13 @@ It is included in this repository, but all the credits of the image conversion g
 
 Clone the repo.
 
-Run ´npm install´ to get all dependencies.
+Run `npm install` to get all dependencies.
 
-Run ´gulp serve´ to see it in action and test that everything is in right place.
+Run `gulp serve` to see it in action and test that everything is in right place.
 
 ### How to setup the development environment
 
-You can run ´gulp serve´ to start a server at localhost:9000. It also watch for changes and reloads the browsers automatically.
+You can run `gulp serve` to start a server at localhost:9000. It also watch for changes and reloads the browsers automatically.
 
 ## Contributors
 
